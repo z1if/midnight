@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>MIDNIGHT S1 ULTRA RP</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+overflow:hidden;
+color:white;
+background:black;
+}
+
+/* 🎬 VIDEO */
+video{
+position:fixed;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:-5;
+filter:brightness(45%) contrast(120%) saturate(130%);
+}
+
+/* 🔵 GTA BLUE OVERLAY */
+.overlay{
+position:fixed;
+width:100%;
+height:100%;
+z-index:-4;
+background:radial-gradient(circle at top,
+rgba(0,140,255,0.25),
+rgba(0,0,0,0.92));
+}
+
+/* ✨ STARS */
+.stars{
+position:fixed;
+width:100%;
+height:100%;
+z-index:-3;
+background:url("https://www.transparenttextures.com/patterns/stardust.png");
+opacity:0.18;
+}
+
+/* 🌌 LIGHT EFFECT */
+.light{
+position:fixed;
+width:100%;
+height:100%;
+z-index:-2;
+background:linear-gradient(120deg,rgba(0,150,255,0.2),transparent);
+animation:move 6s infinite alternate;
+}
+
+@keyframes move{
+from{transform:translateX(-60px);}
+to{transform:translateX(60px);}
+}
+
+/* 🅼 LOGO */
+.logoM{
+position:fixed;
+top:15px;
+left:15px;
+font-size:65px;
+color:#1ea7ff;
+text-shadow:0 0 30px #1ea7ff,0 0 70px #0033ff;
+animation:float 3s infinite ease-in-out;
+}
+
+@keyframes float{
+0%{transform:translateY(0);}
+50%{transform:translateY(-8px);}
+100%{transform:translateY(0);}
+}
+
+/* 🔝 TOP BAR (نظيف + بدون مربع كبير) */
+.topbar{
+position:fixed;
+top:12px;
+left:50%;
+transform:translateX(-50%);
+padding:6px 16px;
+font-size:13px;
+letter-spacing:2px;
+
+background:rgba(0,0,0,0.25);
+border:1px solid rgba(0,140,255,0.25);
+border-radius:25px;
+
+backdrop-filter:blur(12px);
+animation:floatText 4s infinite ease-in-out;
+}
+
+@keyframes floatText{
+0%{transform:translate(-50%,0);}
+50%{transform:translate(-50%,-5px);}
+100%{transform:translate(-50%,0);}
+}
+
+/* 🏠 TITLE */
+.title{
+text-align:center;
+font-size:75px;
+margin-top:110px;
+text-shadow:0 0 30px #0077ff;
+}
+
+/* 📦 CARDS */
+.cards{
+display:flex;
+justify-content:center;
+gap:20px;
+margin-top:35px;
+}
+
+.card{
+width:210px;
+height:140px;
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.1);
+border-radius:12px;
+display:flex;
+align-items:center;
+justify-content:center;
+cursor:pointer;
+transition:0.3s;
+}
+
+.card:hover{
+transform:scale(1.1);
+background:rgba(0,120,255,0.18);
+box-shadow:0 0 25px #0077ff;
+}
+
+/* 🔘 BUTTONS */
+.buttons{
+position:absolute;
+bottom:55px;
+width:100%;
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:12px;
+}
+
+.btn{
+width:250px;
+padding:13px;
+text-align:center;
+border-radius:10px;
+text-decoration:none;
+color:white;
+transition:0.3s;
+}
+
+.join{background:#0077ff;}
+.discord{background:#5865F2;}
+
+.btn:hover{
+transform:scale(1.08);
+box-shadow:0 0 15px #00aaff;
+}
+
+/* 👑 TEAM BOX */
+.team{
+position:fixed;
+right:15px;
+bottom:15px;
+width:250px;
+
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(15px);
+
+border-radius:15px;
+padding:12px;
+border:1px solid rgba(255,255,255,0.2);
+
+animation:floatBox 4s infinite ease-in-out;
+}
+
+@keyframes floatBox{
+0%{transform:translateY(0);}
+50%{transform:translateY(-10px);}
+100%{transform:translateY(0);}
+}
+
+.team h3{
+color:#00aaff;
+font-size:13px;
+margin-top:8px;
+}
+
+.team b{
+font-size:14px;
+}
+
+.status{
+margin-top:10px;
+padding:8px;
+border-radius:10px;
+background:rgba(255,165,0,0.12);
+border:1px solid orange;
+color:orange;
+text-align:center;
+font-size:13px;
+}
+
+/* 📄 PAGES */
+.page{
+display:none;
+position:absolute;
+width:100%;
+height:100%;
+overflow-y:auto;
+padding:50px;
+text-align:center;
+}
+
+.page h1{
+font-size:45px;
+text-shadow:0 0 20px #0077ff;
+}
+
+/* 🔙 BACK */
+.back{
+margin-top:30px;
+display:inline-block;
+padding:10px 18px;
+background:rgb(0, 238, 255);
+border-radius:10px;
+cursor:pointer;
+}
+
+/* 📜 TEXT BOXES */
+.laws{
+max-width:900px;
+margin:auto;
+font-size:18px;
+line-height:2;
+background:rgba(255,255,255,0.05);
+padding:20px;
+border-radius:15px;
+border:1px solid rgba(255,255,255,0.1);
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🎬 VIDEO -->
+<video autoplay muted loop>
+<source src="gta.mp4">
+</video>
+
+<div class="overlay"></div>
+<div class="stars"></div>
+<div class="light"></div>
+
+<!-- 🅼 -->
+<div class="logoM">M</div>
+
+<!-- 🔝 TOP BAR (مهم) -->
+<div class="topbar">
+🔥 أفضل سيرفر في الشرق الأوسط | Midnight RP 2026
+</div>
+
+<!-- 🏠 HOME -->
+<div id="home">
+
+<h1 class="title">MIDNIGHT S1</h1>
+
+<div class="cards">
+<div class="card" onclick="openPage('rp')">RP</div>
+<div class="card" onclick="openPage('discord')">Discord</div>
+<div class="card" onclick="openPage('scenario')">Scenario</div>
+</div>
+
+<div class="buttons">
+<a class="btn join" href="mtasa://45.141.36.182:22007">🚀 دخول السيرفر</a>
+<a class="btn discord" href="https://discord.gg/s8DVYQQb">💎 ديسكورد</a>
+</div>
+
+</div>
+
+<!-- 👑 TEAM -->
+<div class="team">
+<h3>OWNER</h3><b>d3f4ult</b>
+
+<h3>CO OWNER</h3><b>bazoka</b>
+
+<h3>DEV</h3><b>cla4ws</b>
+
+<div class="status">🟡 STATUS: SOON </div>
+</div>
+
+<!-- 📜 RP -->
+<div id="rp" class="page">
+<h1>قوانين رول بلاي</h1>
+<div class="laws">
+1 احترام الجميع<br>2 ممنوع السب<br>3 MG ممنوع<br>4 PG ممنوع<br>5 RDM ممنوع<br>
+6 VDM ممنوع<br>7 Fear RP<br>8 No Value Life<br>9 Power Gaming ممنوع<br>10 Fail RP ممنوع<br>
+11 Meta Gaming ممنوع<br>12 Revenge Kill ممنوع<br>13 Combat Logging ممنوع<br>14 Voice Spam ممنوع<br>
+15 استخدام غير واقعي ممنوع<br>16 سرقة بدون RP ممنوع<br>17 قتل عشوائي ممنوع<br>18 احترام الشرطة<br>
+19 الالتزام بالسيناريو<br>20 الإدارة لها القرار النهائي
+</div>
+<div class="back" onclick="goHome()">BACK</div>
+</div>
+
+<!-- 💬 DISCORD -->
+<div id="discord" class="page">
+<h1>قوانين ديسكورد</h1>
+<div class="laws">
+1 احترام الجميع<br>2 سبام ممنوع<br>3 روابط ممنوعة<br>4 محتوى 18+ ممنوع<br>5 عنصرية ممنوعة<br>
+6 تهديد ممنوع<br>7 إزعاج ممنوع<br>8 إعلانات ممنوعة<br>9 نشر بيانات شخصية ممنوع<br>10 احترام الرومات<br>
+11 بوتات بدون إذن ممنوعة<br>12 تحريض ممنوع<br>13 تجاوز الأدمن ممنوع<br>14 إساءة استخدام<br>
+15 تكرار رسائل ممنوع<br>16 نشر محتوى مزعج ممنوع<br>17 احترام الإدارة<br>18 مخالفة = باند<br>19 التزام كامل<br>20 القرار للإدارة
+</div>
+<div class="back" onclick="goHome()">BACK</div>
+</div>
+
+<!-- 🎬 SCENARIO -->
+<div id="scenario" class="page">
+<h1>قوانين السيناريو</h1>
+<div class="laws">
+1 احترام السيناريو<br>2 عدد الشرطة حسب الحد<br>3 تخطيط قبل العملية<br>4 ممنوع العشوائية<br>5 RP إجباري<br>
+6 تفاوض قبل القتال<br>7 أسلحة حسب السيناريو<br>8 منع التدخل الخارجي<br>9 التزام بالدور<br>10 عدم الغش<br>
+11 هروب واقعي<br>12 ممنوع القتل بدون سبب<br>13 وقت محدد<br>14 تنظيم العمليات<br>
+15 احترام الطرف الآخر<br>16 قيادة واحدة<br>17 ممنوع الفوضى<br>18 الالتزام بالقوانين<br>19 الإدارة تراقب<br>20 عقوبة صارمة
+</div>
+<div class="back" onclick="goHome()">BACK</div>
+</div>
+
+<script>
+function openPage(id){
+document.getElementById("home").style.display="none";
+document.querySelectorAll(".page").forEach(p=>p.style.display="none");
+document.getElementById(id).style.display="block";
+}
+function goHome(){
+document.getElementById("home").style.display="block";
+document.querySelectorAll(".page").forEach(p=>p.style.display="none");
+}
+</script>
+
+</body>
+</html>
